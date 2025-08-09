@@ -1,0 +1,97 @@
+[
+  {
+    "id": "APP-2024-0001",
+    "reference": "APP/2024/0001",
+    "address": "123 High Street, Bramhall, Stockport SK7 1AA",
+    "description": "Single storey rear extension to existing dwelling",
+    "applicantName": "John Smith",
+    "submissionDate": "2024-01-15T09:00:00.000Z",
+    "coordinates": {
+      "latitude": 53.3598,
+      "longitude": -2.1478,
+      "precision": 10,
+      "source": "postcode_lookup"
+    },
+    "status": "consultation",
+    "comments": [
+      {
+        "id": "COMM-2024-0001",
+        "applicationId": "APP-2024-0001",
+        "neighborAddress": "121 High Street, Bramhall, Stockport SK7 1AA",
+        "coordinates": {
+          "latitude": 53.3596,
+          "longitude": -2.1476,
+          "precision": 10,
+          "source": "postcode_lookup"
+        },
+        "content": "I support this application. The proposed extension is modest and will not affect our privacy or light.",
+        "sentiment": "positive",
+        "submissionDate": "2024-01-20T14:30:00.000Z",
+        "status": "pending_review",
+        "officerNotes": "",
+        "isEdited": false,
+        "createdAt": "2024-01-20T14:30:00.000Z",
+        "updatedAt": "2024-01-20T14:30:00.000Z"
+      },
+      {
+        "id": "COMM-2024-0002",
+        "applicationId": "APP-2024-0001",
+        "neighborAddress": "125 High Street, Bramhall, Stockport SK7 1AA",
+        "coordinates": {
+          "latitude": 53.3600,
+          "longitude": -2.1480,
+          "precision": 10,
+          "source": "postcode_lookup"
+        },
+        "content": "I have concerns about this proposal. The extension may block natural light to my kitchen window and impact our garden's privacy.",
+        "sentiment": "negative",
+        "submissionDate": "2024-01-22T16:45:00.000Z",
+        "status": "pending_review",
+        "officerNotes": "",
+        "isEdited": false,
+        "createdAt": "2024-01-22T16:45:00.000Z",
+        "updatedAt": "2024-01-22T16:45:00.000Z"
+      }
+    ],
+    "createdAt": "2024-01-15T09:00:00.000Z",
+    "updatedAt": "2024-01-22T16:45:00.000Z"
+  },
+  {
+    "id": "APP-2024-0002",
+    "reference": "APP/2024/0002",
+    "address": "45 Church Lane, Wilmslow, Cheshire SK9 1BD",
+    "description": "Two storey side extension and loft conversion with rear dormer",
+    "applicantName": "Sarah Johnson",
+    "submissionDate": "2024-01-18T11:15:00.000Z",
+    "coordinates": {
+      "latitude": 53.3278,
+      "longitude": -2.2357,
+      "precision": 10,
+      "source": "postcode_lookup"
+    },
+    "status": "under_review",
+    "comments": [
+      {
+        "id": "COMM-2024-0003",
+        "applicationId": "APP-2024-0002",
+        "neighborAddress": "43 Church Lane, Wilmslow, Cheshire SK9 1BD",
+        "coordinates": {
+          "latitude": 53.3276,
+          "longitude": -2.2355,
+          "precision": 10,
+          "source": "postcode_lookup"
+        },
+        "content": "No objections to this application. The design appears sympathetic to the existing streetscape.",
+        "sentiment": "neutral",
+        "submissionDate": "2024-01-25T10:20:00.000Z",
+        "status": "approved_for_publication",
+        "officerNotes": "Reasonable response with valid planning considerations",
+        "isEdited": false,
+        "createdAt": "2024-01-25T10:20:00.000Z",
+        "updatedAt": "2024-01-25T12:30:00.000Z"
+      }
+    ],
+    "createdAt": "2024-01-18T11:15:00.000Z",
+    "updatedAt": "2024-01-25T12:30:00.000Z"
+  }
+]
