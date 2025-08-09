@@ -1,4 +1,4 @@
-# Epic 4: Comment Management & Officer Workflows
+# Epic 5: Comment Management & Officer Workflows
 
 **Epic Goal:** Enable individual comment editing, publication decisions, and workflow completion features for planning officer task completion, delivering the final functionality needed for officers to process neighbor responses from investigation through to publication decisions.
 

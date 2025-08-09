@@ -1,22 +1,8 @@
-# Epic 1: Foundation & Interactive Map Infrastructure
+# Epic 2: Interactive Map Infrastructure
 
-**Epic Goal:** Establish project setup with Next.js/TypeScript architecture and core interactive mapping functionality, delivering initial spatial visualization capability that demonstrates color-coded sentiment pins and basic click interactions for planning officers.
+**Epic Goal:** Implement core interactive mapping functionality with mock data integration, delivering spatial visualization capability that demonstrates color-coded sentiment pins and basic filtering interactions for planning officers.
 
-## Story 1.1: Project Foundation Setup
-
-As a **developer**,
-I want **Next.js 14+ project with TypeScript, Shadcn UI, and tab-based routing architecture**,
-so that **the application has a solid technical foundation for rapid spatial-first feature development**.
-
-### Acceptance Criteria
-1. Next.js 14+ project created with TypeScript configuration and proper folder structure (`/frontend`, `/backend`, `/shared`)
-2. Shadcn UI component library integrated with consistent theming for planning department interfaces
-3. Tab-based routing implemented with Dashboard and Comments tab navigation
-4. Basic layout component created with professional styling appropriate for UK local authority applications
-5. Development environment configured with proper linting, formatting, and build processes
-6. Local development environment configured with proper security practices
-
-## Story 1.2: Mock Planning Data Structure
+## Story 2.1: Mock Planning Data Structure
 
 As a **planning officer**,
 I want **realistic neighbor comment data with geographic coordinates**,
@@ -30,7 +16,7 @@ so that **I can test spatial workflows with representative UK planning applicati
 5. Data structure designed for easy expansion and PostgreSQL migration compatibility
 6. Mock data accessible via API endpoints with proper TypeScript interfaces in `/shared` directory
 
-## Story 1.3: Interactive Map Component with Color-Coded Pins
+## Story 2.2: Interactive Map Component with Color-Coded Pins
 
 As a **planning officer**,
 I want **an interactive map displaying color-coded neighbor sentiment pins**,
@@ -44,7 +30,7 @@ so that **I can immediately visualize geographic patterns in neighbor responses*
 5. Map displays proper UK geographic context with appropriate tile layers
 6. Visual pin styling clearly distinguishable and professional for planning department use
 
-## Story 1.4: Basic Pin Selection Feedback
+## Story 2.3: Basic Pin Selection Feedback
 
 As a **planning officer**,
 I want **visual feedback when I click map pins**,
@@ -57,3 +43,17 @@ so that **I understand which neighbor locations I've selected for investigation*
 4. Selection state management implemented with proper React state handling
 5. Basic selection clearing mechanism available (click outside pins or dedicated clear button)
 6. Pin hover states provide additional visual feedback for improved user experience
+
+## Story 2.4: Basic Comment List Display
+
+As a **planning officer**,
+I want **a comment list displaying neighbor responses alongside the map**,
+so that **I can review detailed comment content in spatial context**.
+
+### Acceptance Criteria
+1. Comment list component created in Comments tab displaying all neighbor comments from mock data
+2. Each comment entry shows neighbor address, sentiment indicator, comment excerpt (first 100 characters), and timestamp
+3. Comment list renders in under 1 second for up to 500 comments with proper virtualization if needed
+4. Individual comments expandable to show full content with basic formatting preservation
+5. List styling consistent with Shadcn UI components and planning department interface standards
+6. Comment list positioned alongside map component with appropriate responsive layout

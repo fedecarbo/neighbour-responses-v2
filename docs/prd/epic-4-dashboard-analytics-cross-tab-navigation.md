@@ -1,4 +1,4 @@
-# Epic 3: Dashboard Analytics & Cross-Tab Navigation
+# Epic 4: Dashboard Analytics & Cross-Tab Navigation
 
 **Epic Goal:** Create analytics overview with clickable drill-down navigation to filtered comment views, completing the dual-tab workflow architecture that enables planning officers to move seamlessly from insights to detailed investigation.
 
