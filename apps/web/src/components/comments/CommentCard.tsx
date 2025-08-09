@@ -4,12 +4,13 @@ import { NeighborComment, SentimentType, CommentTag } from '@shared/types/commen
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Mail, MapPin, Eye, EyeOff } from 'lucide-react'
+import { Mail, MapPin, Eye, EyeOff, Edit } from 'lucide-react'
 
 interface CommentCardProps {
   comment: NeighborComment
   onPublish?: (commentId: string) => void
   onViewOnMap?: (commentId: string) => void
+  onEdit?: (commentId: string) => void
 }
 
 const getSentimentColor = (sentiment: SentimentType): string => {
@@ -35,7 +36,7 @@ const getTagColor = (tag: CommentTag): string => {
   return colors[tag] || colors['Other']
 }
 
-export function CommentCard({ comment, onPublish, onViewOnMap }: CommentCardProps) {
+export function CommentCard({ comment, onPublish, onViewOnMap, onEdit }: CommentCardProps) {
   const handlePublish = () => {
     if (onPublish) {
       onPublish(comment.id)
@@ -45,6 +46,12 @@ export function CommentCard({ comment, onPublish, onViewOnMap }: CommentCardProp
   const handleViewOnMap = () => {
     if (onViewOnMap) {
       onViewOnMap(comment.id)
+    }
+  }
+
+  const handleEdit = () => {
+    if (onEdit) {
+      onEdit(comment.id)
     }
   }
 
@@ -125,6 +132,16 @@ export function CommentCard({ comment, onPublish, onViewOnMap }: CommentCardProp
           >
             <Eye className="w-3 h-3" />
             View on Map
+          </Button>
+          
+          <Button 
+            variant="outline" 
+            size="sm"
+            onClick={handleEdit}
+            className="flex items-center gap-1"
+          >
+            <Edit className="w-3 h-3" />
+            Edit
           </Button>
           
           <Button 
