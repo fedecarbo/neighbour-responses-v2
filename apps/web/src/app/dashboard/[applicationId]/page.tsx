@@ -18,7 +18,7 @@ interface DashboardPageProps {
 export default async function DashboardPage({ params, searchParams }: DashboardPageProps) {
   const { applicationId } = await params
   const searchParamsData = await searchParams
-  const { sentimentCounts, tagAnalysis, commonConcerns } = getDashboardData()
+  const { sentimentCounts, tagAnalysis } = getDashboardData()
   
   const getTagColor = (tag: string): string => {
     const colors = {

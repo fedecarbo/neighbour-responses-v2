@@ -2,7 +2,8 @@
 
 import { useEffect } from "react"
 import { useFilters } from "@/context/FilterContext"
-import { SentimentType, CommentStatus } from "@shared/types"
+import { SentimentType } from "@shared/types"
+// CommentStatus not implemented for Story 1.4 prototype
 
 interface FilterStateLoaderProps {
   searchParams: {
@@ -19,7 +20,7 @@ export function FilterStateLoader({ searchParams }: FilterStateLoaderProps) {
     const filters: {
       searchText?: string
       sentiment?: SentimentType[]
-      commentStatus?: CommentStatus[]
+      // commentStatus?: CommentStatus[] // Not implemented for Story 1.4 prototype
     } = {}
     
     if (searchParams.search) {
@@ -31,7 +32,7 @@ export function FilterStateLoader({ searchParams }: FilterStateLoaderProps) {
     }
     
     if (searchParams.status) {
-      filters.commentStatus = searchParams.status.split(',').filter(Boolean) as CommentStatus[]
+      // filters.commentStatus = searchParams.status.split(',').filter(Boolean) as CommentStatus[] // Not implemented
     }
     
     if (Object.keys(filters).length > 0) {

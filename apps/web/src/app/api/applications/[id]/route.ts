@@ -1,32 +1,24 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { loadApplicationById } from '@/utils/fileOperations'
-import { createErrorResponse, withErrorHandler, logError, NotFoundError } from '@/utils/errorHandling'
+import { NextResponse } from 'next/server'
+import { loadApplication } from '@/utils/fileOperations'
 
 /**
  * GET /api/applications/[id]
- * Returns specific planning application with comments
+ * Returns the single mock application for prototype (ignores id parameter)
  */
-export const GET = withErrorHandler(async (
-  request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
-) => {
+export async function GET() {
   try {
-    const { id } = await params
-    const application = await loadApplicationById(id)
-    
-    if (!application) {
-      throw new NotFoundError('Planning Application', id)
-    }
+    const application = await loadApplication()
     
     return NextResponse.json({
-      application,
-      timestamp: new Date().toISOString(),
+      data: application,
+      success: true
     })
   } catch (error) {
-    logError(error as Error, { endpoint: '/api/applications/[id]', method: 'GET', params: await params })
-    const errorResponse = createErrorResponse(error as Error, `/api/applications/${(await params).id}`)
-    
-    const statusCode = error instanceof NotFoundError ? 404 : 500
-    return NextResponse.json(errorResponse, { status: statusCode })
+    console.error('Error loading application:', error)
+    return NextResponse.json({
+      data: null,
+      success: false,
+      error: 'Failed to load planning application'
+    }, { status: 500 })
   }
-})
+}

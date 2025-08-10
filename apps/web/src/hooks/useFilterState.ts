@@ -37,12 +37,11 @@ export function useFilterState() {
   const hasActiveFilters = () => {
     return (
       filters.sentiment.length > 0 ||
-      filters.commentStatus.length > 0 ||
-      filters.applicationStatus.length > 0 ||
+      (filters.commentStatus && filters.commentStatus.length > 0) ||
+      (filters.applicationStatus && filters.applicationStatus.length > 0) ||
       !!filters.searchText ||
       !!filters.geographicBounds ||
-      !!filters.dateRange.start ||
-      !!filters.dateRange.end
+      (filters.dateRange && (!!filters.dateRange.start || !!filters.dateRange.end))
     )
   }
 

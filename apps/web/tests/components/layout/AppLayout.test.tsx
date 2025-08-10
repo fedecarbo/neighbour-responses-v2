@@ -35,8 +35,8 @@ describe('AppLayout', () => {
       </AppLayout>
     )
     
-    expect(screen.getByRole('tab', { name: 'Dashboard' })).toBeInTheDocument()
-    expect(screen.getByRole('tab', { name: 'Comments' })).toBeInTheDocument()
+    expect(screen.getByRole('tab', { name: 'Switch to dashboard view' })).toBeInTheDocument()
+    expect(screen.getByRole('tab', { name: 'Switch to comments view' })).toBeInTheDocument()
   })
 
   it('displays children content', () => {
@@ -64,7 +64,7 @@ describe('AppLayout', () => {
       </AppLayout>
     )
     
-    const commentsTab = screen.getByRole('tab', { name: 'Comments' })
+    const commentsTab = screen.getByRole('tab', { name: 'Switch to comments view' })
     expect(commentsTab).toHaveAttribute('data-state', 'active')
   })
 })

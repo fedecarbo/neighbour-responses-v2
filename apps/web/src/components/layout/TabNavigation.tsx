@@ -34,7 +34,7 @@ export function TabNavigation({ children, applicationId, activeTab }: TabNavigat
     if (filters.sentiment.length > 0) {
       searchParams.set('sentiment', filters.sentiment.join(','))
     }
-    if (filters.commentStatus.length > 0) {
+    if (filters.commentStatus && filters.commentStatus.length > 0) {
       searchParams.set('status', filters.commentStatus.join(','))
     }
     

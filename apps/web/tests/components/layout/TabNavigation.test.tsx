@@ -48,7 +48,7 @@ describe('TabNavigation', () => {
       </TestWrapper>
     )
     
-    const commentsTab = screen.getByRole('tab', { name: 'Comments' })
+    const commentsTab = screen.getByRole('tab', { name: 'Switch to comments view' })
     expect(commentsTab).toHaveAttribute('data-state', 'active')
   })
 })

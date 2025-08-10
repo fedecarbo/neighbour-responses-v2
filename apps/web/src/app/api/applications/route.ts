@@ -1,23 +1,24 @@
 import { NextResponse } from 'next/server'
-import { loadApplications } from '@/utils/fileOperations'
-import { createErrorResponse, withErrorHandler, logError } from '@/utils/errorHandling'
+import { loadApplication } from '@/utils/fileOperations'
 
 /**
  * GET /api/applications
- * Returns all planning applications from local JSON files
+ * Returns the single mock planning application for prototype
  */
-export const GET = withErrorHandler(async () => {
+export async function GET() {
   try {
-    const applications = await loadApplications()
+    const application = await loadApplication()
     
     return NextResponse.json({
-      applications,
-      total: applications.length,
-      timestamp: new Date().toISOString(),
+      data: application,
+      success: true
     })
   } catch (error) {
-    logError(error as Error, { endpoint: '/api/applications', method: 'GET' })
-    const errorResponse = createErrorResponse(error as Error, '/api/applications')
-    return NextResponse.json(errorResponse, { status: 500 })
+    console.error('Error loading application:', error)
+    return NextResponse.json({
+      data: null,
+      success: false,
+      error: 'Failed to load planning application'
+    }, { status: 500 })
   }
-})
+}

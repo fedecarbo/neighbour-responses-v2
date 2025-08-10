@@ -26,12 +26,14 @@ export function AppLayout({ children, applicationId, activeTab, onTabChange }: A
             <TabsTrigger 
               value="dashboard" 
               className="text-sm sm:text-base px-2 sm:px-3"
+              aria-label="Switch to dashboard view"
             >
               Dashboard
             </TabsTrigger>
             <TabsTrigger 
               value="comments" 
               className="text-sm sm:text-base px-2 sm:px-3"
+              aria-label="Switch to comments view"
             >
               Comments
             </TabsTrigger>

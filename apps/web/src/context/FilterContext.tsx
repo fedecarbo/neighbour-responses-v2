@@ -16,12 +16,18 @@ type FilterAction =
 
 // Initial filter state
 const initialFilterState: FilterState = {
+  // Story 1.4 core fields
+  selectedPins: [],
+  sentimentFilter: [],
+  searchQuery: '',
+  mapBounds: undefined,
+  // Extended fields for compatibility
   sentiment: [],
+  searchText: undefined,
   commentStatus: [],
   applicationStatus: [],
   dateRange: {},
   geographicBounds: undefined,
-  searchText: undefined,
 }
 
 // Filter reducer

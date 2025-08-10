@@ -6,92 +6,72 @@
 
 import fs from 'fs/promises'
 import path from 'path'
-import { PlanningApplication, NeighborComment } from '@shared/types'
+import { PlanningApplication, NeighborComment, SentimentType } from '@shared/types'
 
-const DATA_DIR = path.join(process.cwd(), 'data')
-const APPLICATIONS_FILE = path.join(DATA_DIR, 'applications.json')
+const DATA_DIR = path.join(process.cwd(), 'src', 'data')
+const MOCK_APPLICATION_FILE = path.join(DATA_DIR, 'mock-application.json')
 
 // In-memory cache for performance optimization
-let applicationsCache: PlanningApplication[] | null = null
+let applicationCache: PlanningApplication | null = null
 let cacheTimestamp: number | null = null
 const CACHE_TTL = 5 * 60 * 1000 // 5 minutes in milliseconds
 
 /**
- * Load all planning applications from JSON file
+ * Load the single mock planning application
  */
-export async function loadApplications(): Promise<PlanningApplication[]> {
+export async function loadApplication(): Promise<PlanningApplication> {
   try {
     // Check cache validity
     const now = Date.now()
-    if (applicationsCache && cacheTimestamp && (now - cacheTimestamp) < CACHE_TTL) {
-      return applicationsCache
+    if (applicationCache && cacheTimestamp && (now - cacheTimestamp) < CACHE_TTL) {
+      return applicationCache
     }
 
     // Read file and parse JSON
-    const fileContent = await fs.readFile(APPLICATIONS_FILE, 'utf-8')
-    const applications: PlanningApplication[] = JSON.parse(fileContent)
+    const fileContent = await fs.readFile(MOCK_APPLICATION_FILE, 'utf-8')
+    const application: PlanningApplication = JSON.parse(fileContent)
     
     // Update cache
-    applicationsCache = applications
+    applicationCache = application
     cacheTimestamp = now
     
-    return applications
+    return application
   } catch (error) {
-    console.error('Error loading applications:', error)
-    throw new Error('Failed to load planning applications')
+    console.error('Error loading application:', error)
+    throw new Error('Failed to load planning application')
   }
 }
 
 /**
- * Load specific planning application by ID
- */
-export async function loadApplicationById(id: string): Promise<PlanningApplication | null> {
-  try {
-    const applications = await loadApplications()
-    return applications.find(app => app.id === id) || null
-  } catch (error) {
-    console.error(`Error loading application ${id}:`, error)
-    return null
-  }
-}
-
-/**
- * Save applications to JSON file
+ * Save application to JSON file
  * Used for comment updates and application modifications
  */
-export async function saveApplications(applications: PlanningApplication[]): Promise<void> {
+export async function saveApplication(application: PlanningApplication): Promise<void> {
   try {
-    const fileContent = JSON.stringify(applications, null, 2)
-    await fs.writeFile(APPLICATIONS_FILE, fileContent, 'utf-8')
+    const fileContent = JSON.stringify(application, null, 2)
+    await fs.writeFile(MOCK_APPLICATION_FILE, fileContent, 'utf-8')
     
     // Update cache
-    applicationsCache = applications
+    applicationCache = application
     cacheTimestamp = Date.now()
   } catch (error) {
-    console.error('Error saving applications:', error)
-    throw new Error('Failed to save planning applications')
+    console.error('Error saving application:', error)
+    throw new Error('Failed to save planning application')
   }
 }
 
 /**
- * Update a specific comment within an application
- * Critical: Preserves originalContent and sets isEdited flags for audit compliance
+ * Update a specific comment within the application
+ * For prototype: simple officer notes updates
  */
 export async function updateComment(
-  applicationId: string,
   commentId: string,
   updates: Partial<NeighborComment>
 ): Promise<boolean> {
   try {
-    const applications = await loadApplications()
-    const applicationIndex = applications.findIndex(app => app.id === applicationId)
+    const application = await loadApplication()
     
-    if (applicationIndex === -1) {
-      console.error(`Application not found: ${applicationId}`)
-      return false
-    }
-    
-    const commentIndex = applications[applicationIndex].comments.findIndex(
+    const commentIndex = application.comments.findIndex(
       comment => comment.id === commentId
     )
     
@@ -100,27 +80,13 @@ export async function updateComment(
       return false
     }
     
-    const currentComment = applications[applicationIndex].comments[commentIndex]
-    
-    // Preserve audit trail for content changes
-    if (updates.content && updates.content !== currentComment.content) {
-      if (!currentComment.isEdited) {
-        updates.originalContent = currentComment.content
-      }
-      updates.isEdited = true
-    }
-    
-    // Update comment with timestamp
-    applications[applicationIndex].comments[commentIndex] = {
-      ...currentComment,
+    // Update comment
+    application.comments[commentIndex] = {
+      ...application.comments[commentIndex],
       ...updates,
-      updatedAt: new Date(),
     }
     
-    // Update application timestamp
-    applications[applicationIndex].updatedAt = new Date()
-    
-    await saveApplications(applications)
+    await saveApplication(application)
     return true
   } catch (error) {
     console.error('Error updating comment:', error)
@@ -129,9 +95,44 @@ export async function updateComment(
 }
 
 /**
+ * Get comments with optional filtering
+ */
+export async function getComments(filters?: {
+  sentiment?: SentimentType[];
+  search?: string;
+}): Promise<NeighborComment[]> {
+  try {
+    const application = await loadApplication()
+    let comments = application.comments
+    
+    if (filters?.sentiment && filters.sentiment.length > 0) {
+      comments = comments.filter(comment => 
+        filters.sentiment!.includes(comment.sentiment)
+      )
+    }
+    
+    if (filters?.search) {
+      const searchLower = filters.search.toLowerCase()
+      comments = comments.filter(comment =>
+        comment.content.toLowerCase().includes(searchLower) ||
+        comment.neighborAddress.toLowerCase().includes(searchLower) ||
+        (comment.officerNotes && comment.officerNotes.toLowerCase().includes(searchLower))
+      )
+    }
+    
+    return comments
+  } catch (error) {
+    console.error('Error getting comments:', error)
+    return []
+  }
+}
+
+/**
  * Clear cache manually (useful for testing or forced refresh)
  */
 export function clearCache(): void {
-  applicationsCache = null
+  applicationCache = null
   cacheTimestamp = null
 }
+
+// Types are now imported from @shared/types

@@ -1,10 +1,10 @@
 'use client'
 
-import { NeighborComment, SentimentType, CommentTag } from '@shared/types/comments'
+import { NeighborComment, SentimentType } from '@shared/types/comments'
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Mail, MapPin, Eye, EyeOff, Edit } from 'lucide-react'
+import { MapPin, Eye, Edit } from 'lucide-react'
 
 interface CommentCardProps {
   comment: NeighborComment
@@ -22,19 +22,7 @@ const getSentimentColor = (sentiment: SentimentType): string => {
   }
 }
 
-const getTagColor = (tag: CommentTag): string => {
-  const colors = {
-    'Use': 'bg-blue-100 text-blue-800',
-    'Privacy': 'bg-purple-100 text-purple-800',
-    'Light': 'bg-yellow-100 text-yellow-800',
-    'Access': 'bg-orange-100 text-orange-800',
-    'Noise': 'bg-red-100 text-red-800',
-    'Traffic': 'bg-indigo-100 text-indigo-800',
-    'Design': 'bg-pink-100 text-pink-800',
-    'Other': 'bg-gray-100 text-gray-800'
-  }
-  return colors[tag] || colors['Other']
-}
+// Simplified prototype - no tags
 
 export function CommentCard({ comment, onPublish, onViewOnMap, onEdit }: CommentCardProps) {
   const handlePublish = () => {
@@ -63,16 +51,12 @@ export function CommentCard({ comment, onPublish, onViewOnMap, onEdit }: Comment
           <div className="flex-1">
             <div className="flex items-center gap-2 mb-1">
               <h3 className="font-semibold text-sm">
-                {comment.name} {comment.surname}
+                Neighbor Comment {comment.id}
               </h3>
             </div>
             
-            {/* Contact Information */}
+            {/* Address Information */}
             <div className="space-y-1 text-xs text-muted-foreground mb-2">
-              <div className="flex items-center gap-1">
-                <Mail className="w-3 h-3" />
-                <span>{comment.email}</span>
-              </div>
               <div className="flex items-center gap-1">
                 <MapPin className="w-3 h-3" />
                 <span>{comment.neighborAddress}</span>
@@ -80,14 +64,8 @@ export function CommentCard({ comment, onPublish, onViewOnMap, onEdit }: Comment
             </div>
           </div>
           
-          {/* Badges - Redacted and Sentiment */}
+          {/* Sentiment Badge */}
           <div className="flex items-center gap-2">
-            {comment.isRedacted && (
-              <Badge variant="outline" className="bg-yellow-100 text-yellow-800 border-yellow-300">
-                <EyeOff className="w-3 h-3 mr-1" />
-                Redacted
-              </Badge>
-            )}
             <Badge 
               variant="outline" 
               className={`capitalize ${getSentimentColor(comment.sentiment)}`}
@@ -100,27 +78,11 @@ export function CommentCard({ comment, onPublish, onViewOnMap, onEdit }: Comment
         {/* Comment Content */}
         <div className="mb-4">
           <p className="text-sm text-gray-700 leading-relaxed">
-            {comment.isRedacted ? 
-              "This comment has been redacted for publication." : 
-              comment.content
-            }
+            {comment.content}
           </p>
         </div>
 
-        {/* Tags */}
-        {comment.tags && comment.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mb-4">
-            {comment.tags.map((tag) => (
-              <Badge 
-                key={tag} 
-                variant="secondary" 
-                className={`text-xs ${getTagColor(tag)}`}
-              >
-                {tag}
-              </Badge>
-            ))}
-          </div>
-        )}
+        {/* Simplified prototype - no tags */}
 
         {/* Actions */}
         <div className="flex gap-2 pt-2 border-t">

@@ -9,8 +9,8 @@ I want **realistic neighbor comment data with geographic coordinates**,
 so that **I can test spatial workflows with representative UK planning application scenarios**.
 
 ### Acceptance Criteria
-1. JSON mock data structure created representing 2-3 realistic UK planning applications
-2. Each application includes 15-30 neighbor comments with geographic coordinates (latitude/longitude)
+1. JSON mock data structure enhanced for one realistic UK planning application with expanded neighbor comments
+2. The application includes 25-30 neighbor comments with geographic coordinates (latitude/longitude)
 3. Comments include sentiment classification (red/yellow/green), neighbor addresses, and comment content
 4. Geographic coordinates represent realistic UK residential planning scenarios with varied proximity to application sites
 5. Data structure designed for easy expansion and PostgreSQL migration compatibility

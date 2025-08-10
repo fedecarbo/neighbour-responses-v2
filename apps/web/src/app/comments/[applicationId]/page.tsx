@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { FilterStateLoader } from "@/components/layout/FilterStateLoader"
 import { CommentsSection } from "@/components/comments/CommentsSection"
+import { InteractiveMapSection } from "./InteractiveMapSection"
 
 interface CommentsPageProps {
   params: Promise<{
@@ -52,21 +53,11 @@ export default async function CommentsPage({ params, searchParams }: CommentsPag
             <CardHeader>
               <CardTitle>Interactive Map</CardTitle>
               <CardDescription>
-                This feature will help you visualize comment locations and analyze spatial patterns of community feedback
+                Color-coded pins show neighbor sentiment and application location for spatial analysis
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="h-[450px] flex items-center justify-center bg-gray-100 border border-gray-200 rounded-md">
-                <div className="text-center">
-                  <p className="font-medium text-gray-500 mb-2">Interactive Map View</p>
-                  <p className="text-sm text-gray-400">
-                    • Color-coded pins by sentiment<br/>
-                    • Synchronized selection with comment list<br/>
-                    • Clustering for high-density areas<br/>
-                    • Geographic filtering tools
-                  </p>
-                </div>
-              </div>
+              <InteractiveMapSection applicationId={applicationId} />
             </CardContent>
           </Card>
         </section>
