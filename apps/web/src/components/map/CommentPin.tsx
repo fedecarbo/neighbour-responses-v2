@@ -1,9 +1,9 @@
 "use client"
 
 import React, { useMemo } from 'react';
-import { Marker, Popup, Tooltip } from 'react-leaflet';
+import { Marker, Popup } from 'react-leaflet';
 import { divIcon, DivIcon } from 'leaflet';
-import { NeighborComment, SentimentType } from '@shared/types';
+import { NeighborComment, SentimentType, getTagColor } from '@shared/types/comments';
 import { Badge } from '@/components/ui/badge';
 import { UK_MAP_CONFIG } from '@/utils/mapConfig';
 
@@ -114,20 +114,6 @@ export const CommentPin: React.FC<CommentPinProps> = React.memo(({
         mouseout: handleMouseLeave,
       }}
     >
-      <Tooltip direction="top" offset={[0, -10]} opacity={0.9}>
-        <div className="max-w-xs p-2">
-          <div className="font-medium text-sm">{comment.neighborAddress}</div>
-          <div className="flex items-center gap-2 mt-1">
-            <Badge variant="secondary" className="text-xs">
-              {getSentimentLabel(comment.sentiment)}
-            </Badge>
-            <span className="text-xs text-muted-foreground">
-              {new Date(comment.submissionDate).toLocaleDateString()}
-            </span>
-          </div>
-        </div>
-      </Tooltip>
-      
       <Popup maxWidth={300} closeButton={true}>
         <div className="p-2">
           <h3 className="font-semibold text-sm mb-2">{comment.neighborAddress}</h3>
@@ -148,6 +134,24 @@ export const CommentPin: React.FC<CommentPinProps> = React.memo(({
           <p className="text-sm text-muted-foreground line-clamp-3 mb-3">
             {comment.content}
           </p>
+          
+          {/* Tags */}
+          {comment.tags && comment.tags.length > 0 && (
+            <div className="mb-3">
+              <div className="flex flex-wrap gap-1">
+                {comment.tags.map((tag) => (
+                  <Badge
+                    key={tag}
+                    variant="secondary"
+                    className={`text-xs ${getTagColor(tag)}`}
+                  >
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          )}
+          
           <div className="flex items-center justify-between text-xs text-muted-foreground">
             <span>ID: {comment.id.slice(0, 8)}</span>
             <span>{new Date(comment.submissionDate).toLocaleDateString()}</span>

@@ -3,7 +3,7 @@
  * Simplified for prototype - Story 1.4
  */
 
-import { GeographicCoordinate } from './spatial';
+import { GeographicCoordinate, PolygonBoundary } from './spatial';
 import { NeighborComment } from './comments';
 
 export interface PlanningApplication {
@@ -14,6 +14,7 @@ export interface PlanningApplication {
   applicantName: string;
   submissionDate: string;
   coordinates: GeographicCoordinate;
+  boundary?: PolygonBoundary;  // Optional polygon boundary for site outline
   status: string;
   comments: NeighborComment[];
 }

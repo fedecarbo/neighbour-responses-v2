@@ -24,14 +24,14 @@ vi.mock('next/dynamic', () => ({
       );
     }
     
-    if (importString.includes('ApplicationPin')) {
+    if (importString.includes('ApplicationBoundary')) {
       return ({ application, onClick }: any) => (
         <div 
-          data-testid="application-pin"
+          data-testid="application-boundary"
           data-application-id={application.id}
           onClick={() => onClick?.(application)}
         >
-          Application: {application.reference}
+          Application Site: {application.reference}
         </div>
       );
     }
@@ -123,7 +123,7 @@ describe('MapComponent', () => {
     expect(mapContainer.getAttribute('data-zoom')).toBe('18');
   });
 
-  it('renders application pin', () => {
+  it('renders application boundary', () => {
     render(
       <MapComponent
         application={mockApplication}
@@ -131,10 +131,10 @@ describe('MapComponent', () => {
       />
     );
 
-    const applicationPin = screen.getByTestId('application-pin');
-    expect(applicationPin).toBeInTheDocument();
-    expect(applicationPin).toHaveTextContent('24/00001/FUL');
-    expect(applicationPin.getAttribute('data-application-id')).toBe('APP-2024-0001');
+    const applicationBoundary = screen.getByTestId('application-boundary');
+    expect(applicationBoundary).toBeInTheDocument();
+    expect(applicationBoundary).toHaveTextContent('24/00001/FUL');
+    expect(applicationBoundary.getAttribute('data-application-id')).toBe('APP-2024-0001');
   });
 
   it('renders all comment pins with correct sentiment', () => {
@@ -161,7 +161,7 @@ describe('MapComponent', () => {
       />
     );
 
-    expect(screen.getByText('Planning Application')).toBeInTheDocument();
+    expect(screen.getByText('Application Site')).toBeInTheDocument();
     expect(screen.getByText('Positive')).toBeInTheDocument();
     expect(screen.getByText('Neutral')).toBeInTheDocument();
     expect(screen.getByText('Negative')).toBeInTheDocument();
@@ -194,7 +194,7 @@ describe('MapComponent', () => {
     consoleSpy.mockRestore();
   });
 
-  it('handles application pin clicks with console logging', async () => {
+  it('handles application boundary clicks with console logging', async () => {
     const user = userEvent.setup();
     const onApplicationPinClickMock = vi.fn();
     const consoleSpy = vi.spyOn(console, 'log').mockImplementation();
@@ -207,8 +207,8 @@ describe('MapComponent', () => {
       />
     );
 
-    const applicationPin = screen.getByTestId('application-pin');
-    await user.click(applicationPin);
+    const applicationBoundary = screen.getByTestId('application-boundary');
+    await user.click(applicationBoundary);
 
     expect(consoleSpy).toHaveBeenCalledWith('Application pin clicked:', expect.objectContaining({
       applicationId: 'APP-2024-0001',

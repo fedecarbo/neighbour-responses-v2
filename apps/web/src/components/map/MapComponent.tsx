@@ -3,7 +3,7 @@
 import React, { useCallback, useState } from 'react';
 import { PlanningApplication, NeighborComment } from '@shared/types';
 import { MapContainer } from './MapContainer';
-import { ApplicationPin } from './ApplicationPin';
+import { ApplicationBoundary } from './ApplicationBoundary';
 import { CommentPin } from './CommentPin';
 import { MapThemeSelector } from './MapThemeSelector';
 import { MapTheme, UK_MAP_CONFIG } from '@/utils/mapConfig';
@@ -110,8 +110,8 @@ export const MapComponent: React.FC<MapComponentProps> = React.memo(({
         theme={currentTheme}
         className="rounded-md border"
       >
-        {/* Application Pin - highest z-index */}
-        <ApplicationPin
+        {/* Application Boundary - site outline */}
+        <ApplicationBoundary
           application={application}
           onClick={handleApplicationPinClick}
         />
@@ -137,8 +137,8 @@ export const MapComponent: React.FC<MapComponentProps> = React.memo(({
       {/* Map Legend */}
       <div className="mt-3 flex items-center justify-center gap-6 text-sm">
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 bg-blue-600 border-2 border-white rounded shadow-sm"></div>
-          <span className="text-muted-foreground">Planning Application</span>
+          <div className="w-4 h-4 bg-blue-600 bg-opacity-20 border-2 border-blue-600 rounded shadow-sm"></div>
+          <span className="text-muted-foreground">Application Site</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 bg-green-500 border border-white rounded-full shadow-sm"></div>

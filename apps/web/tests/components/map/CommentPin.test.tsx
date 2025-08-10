@@ -17,7 +17,6 @@ vi.mock('react-leaflet', () => ({
       {children}
     </div>
   ),
-  Tooltip: ({ children }: any) => <div data-testid="tooltip">{children}</div>,
   Popup: ({ children }: any) => <div data-testid="popup">{children}</div>
 }));
 
@@ -32,6 +31,10 @@ vi.mock('leaflet', () => ({
 
 const mockComment: NeighborComment = {
   id: 'comment-001',
+  applicationId: 'APP-2024-0001',
+  name: 'John',
+  surname: 'Doe',
+  email: 'john@example.com',
   neighborAddress: '13 Oxford Road, Manchester M1 5QA',
   coordinates: {
     latitude: 53.472,
@@ -39,8 +42,14 @@ const mockComment: NeighborComment = {
   },
   content: 'Test comment content for unit testing',
   sentiment: 'positive',
-  submissionDate: '2024-01-20T14:30:00Z',
-  officerNotes: 'Test officer note'
+  tags: ['Design', 'Privacy'],
+  submissionDate: new Date('2024-01-20T14:30:00Z'),
+  status: 'pending_review',
+  isRedacted: false,
+  officerNotes: 'Test officer note',
+  isEdited: false,
+  createdAt: new Date('2024-01-20T14:30:00Z'),
+  updatedAt: new Date('2024-01-20T14:30:00Z')
 };
 
 describe('CommentPin', () => {
@@ -136,7 +145,7 @@ describe('CommentPin', () => {
     expect(onMouseLeaveMock).toHaveBeenCalledTimes(1);
   });
 
-  it('renders tooltip with correct information', () => {
+  it('does not render tooltip on hover', () => {
     render(
       <CommentPin 
         comment={mockComment}
@@ -145,10 +154,8 @@ describe('CommentPin', () => {
       />
     );
 
-    const tooltip = screen.getByTestId('tooltip');
-    expect(tooltip).toBeInTheDocument();
-    expect(tooltip).toHaveTextContent('13 Oxford Road, Manchester M1 5QA');
-    expect(tooltip).toHaveTextContent('Positive');
+    const tooltip = screen.queryByTestId('tooltip');
+    expect(tooltip).not.toBeInTheDocument();
   });
 
   it('renders popup with detailed comment information', () => {
@@ -178,5 +185,39 @@ describe('CommentPin', () => {
 
     const marker = screen.getByTestId('marker');
     expect(marker).toBeInTheDocument();
+  });
+
+  it('renders tags in popup when comment has tags', () => {
+    render(
+      <CommentPin 
+        comment={mockComment}
+        isSelected={false}
+        onClick={vi.fn()}
+      />
+    );
+
+    const popup = screen.getByTestId('popup');
+    expect(popup).toBeInTheDocument();
+    expect(popup).toHaveTextContent('Design');
+    expect(popup).toHaveTextContent('Privacy');
+  });
+
+  it('does not render tags section when comment has no tags', () => {
+    const commentWithoutTags = { ...mockComment, tags: [] };
+    
+    render(
+      <CommentPin 
+        comment={commentWithoutTags}
+        isSelected={false}
+        onClick={vi.fn()}
+      />
+    );
+
+    const popup = screen.getByTestId('popup');
+    expect(popup).toBeInTheDocument();
+    expect(popup).toHaveTextContent('Test comment content for unit testing');
+    // Tags should not be present
+    expect(popup).not.toHaveTextContent('Design');
+    expect(popup).not.toHaveTextContent('Privacy');
   });
 });
