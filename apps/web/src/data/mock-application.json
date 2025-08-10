@@ -1,0 +1,351 @@
+{
+  "id": "APP-2024-0001",
+  "reference": "24/00001/FUL",
+  "address": "15 Oxford Road, Manchester M1 5QA",
+  "description": "Proposed two-story rear extension to existing residential property including kitchen extension and additional bedroom above",
+  "applicantName": "John Smith",
+  "submissionDate": "2024-01-15T09:00:00Z",
+  "coordinates": {
+    "latitude": 53.4722,
+    "longitude": -2.2374
+  },
+  "status": "consultation",
+  "comments": [
+    {
+      "id": "comment-001",
+      "neighborAddress": "13 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.472,
+        "longitude": -2.2372
+      },
+      "content": "I strongly support this extension proposal. The design looks well thought out and will enhance the property without affecting our light or privacy.",
+      "sentiment": "positive",
+      "submissionDate": "2024-01-20T14:30:00Z",
+      "officerNotes": "Updated during QA review - test note"
+    },
+    {
+      "id": "comment-002",
+      "neighborAddress": "17 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.4724,
+        "longitude": -2.2376
+      },
+      "content": "I have concerns about the height of the proposed extension. It may block natural light to our rear garden and kitchen window during afternoon hours.",
+      "sentiment": "negative",
+      "submissionDate": "2024-01-22T09:15:00Z",
+      "officerNotes": "Follow up on light impact assessment needed"
+    },
+    {
+      "id": "comment-003",
+      "neighborAddress": "19 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.4726,
+        "longitude": -2.2378
+      },
+      "content": "The extension appears reasonable in size and design. No objections from our household as long as building work hours are reasonable.",
+      "sentiment": "neutral",
+      "submissionDate": "2024-01-23T16:45:00Z",
+      "officerNotes": ""
+    },
+    {
+      "id": "comment-004",
+      "neighborAddress": "11 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.4718,
+        "longitude": -2.237
+      },
+      "content": "Excellent proposal that will improve the street appearance. The materials specified match the existing building perfectly.",
+      "sentiment": "positive",
+      "submissionDate": "2024-01-24T11:20:00Z",
+      "officerNotes": ""
+    },
+    {
+      "id": "comment-005",
+      "neighborAddress": "14 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.4721,
+        "longitude": -2.2371
+      },
+      "content": "While I don't object to home improvements, I'm concerned about the potential noise during construction affecting my home office work.",
+      "sentiment": "neutral",
+      "submissionDate": "2024-01-25T10:30:00Z",
+      "officerNotes": "Construction hours condition recommended"
+    },
+    {
+      "id": "comment-006",
+      "neighborAddress": "16 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.4723,
+        "longitude": -2.2375
+      },
+      "content": "This extension is completely inappropriate for the area and will overshadow our property. The scale is far too large for the plot size.",
+      "sentiment": "negative",
+      "submissionDate": "2024-01-26T13:45:00Z",
+      "officerNotes": "Shadowing analysis required"
+    },
+    {
+      "id": "comment-007",
+      "neighborAddress": "12 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.4719,
+        "longitude": -2.2369
+      },
+      "content": "The proposed extension looks well-designed and proportional to the existing house. Should enhance property values in the area.",
+      "sentiment": "positive",
+      "submissionDate": "2024-01-27T15:10:00Z",
+      "officerNotes": ""
+    },
+    {
+      "id": "comment-008",
+      "neighborAddress": "18 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.4725,
+        "longitude": -2.2377
+      },
+      "content": "No strong feelings either way. The extension seems standard for this type of property and area.",
+      "sentiment": "neutral",
+      "submissionDate": "2024-01-28T12:00:00Z",
+      "officerNotes": ""
+    },
+    {
+      "id": "comment-009",
+      "neighborAddress": "9 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.4716,
+        "longitude": -2.2368
+      },
+      "content": "I object to this proposal due to concerns about drainage and surface water runoff affecting neighboring properties during heavy rain.",
+      "sentiment": "negative",
+      "submissionDate": "2024-01-29T08:45:00Z",
+      "officerNotes": "Drainage impact assessment needed"
+    },
+    {
+      "id": "comment-010",
+      "neighborAddress": "21 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.4728,
+        "longitude": -2.238
+      },
+      "content": "Great to see investment in the area. The extension design is tasteful and should set a good precedent for other improvements.",
+      "sentiment": "positive",
+      "submissionDate": "2024-01-30T17:30:00Z",
+      "officerNotes": ""
+    },
+    {
+      "id": "comment-011",
+      "neighborAddress": "7 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.4714,
+        "longitude": -2.2366
+      },
+      "content": "The proposal is acceptable in principle but I would like assurance that party wall procedures will be followed properly.",
+      "sentiment": "neutral",
+      "submissionDate": "2024-02-01T14:15:00Z",
+      "officerNotes": "Party wall notice condition recommended"
+    },
+    {
+      "id": "comment-012",
+      "neighborAddress": "23 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.473,
+        "longitude": -2.2382
+      },
+      "content": "This extension will completely ruin the character of our Victorian terraced street. The modern design is totally out of keeping.",
+      "sentiment": "negative",
+      "submissionDate": "2024-02-02T11:30:00Z",
+      "officerNotes": "Design compatibility review required"
+    },
+    {
+      "id": "comment-013",
+      "neighborAddress": "5 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.4712,
+        "longitude": -2.2364
+      },
+      "content": "I fully support this application. The family clearly needs more space and the extension is well-proportioned and sensitively designed.",
+      "sentiment": "positive",
+      "submissionDate": "2024-02-03T09:20:00Z",
+      "officerNotes": ""
+    },
+    {
+      "id": "comment-014",
+      "neighborAddress": "25 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.4732,
+        "longitude": -2.2384
+      },
+      "content": "The application seems reasonable but I would appreciate confirmation about construction vehicle access and parking arrangements.",
+      "sentiment": "neutral",
+      "submissionDate": "2024-02-04T16:00:00Z",
+      "officerNotes": "Construction management plan condition recommended"
+    },
+    {
+      "id": "comment-015",
+      "neighborAddress": "3 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.471,
+        "longitude": -2.2362
+      },
+      "content": "Strongly object to this overdevelopment. The site coverage will be excessive and contrary to local planning policies on garden land.",
+      "sentiment": "negative",
+      "submissionDate": "2024-02-05T13:45:00Z",
+      "officerNotes": "Site coverage calculation and policy compliance check required"
+    },
+    {
+      "id": "comment-016",
+      "neighborAddress": "27 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.4734,
+        "longitude": -2.2386
+      },
+      "content": "The extension will improve the appearance of the property and the street. The proposed materials are appropriate for the conservation area.",
+      "sentiment": "positive",
+      "submissionDate": "2024-02-06T10:15:00Z",
+      "officerNotes": ""
+    },
+    {
+      "id": "comment-017",
+      "neighborAddress": "1 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.4708,
+        "longitude": -2.236
+      },
+      "content": "Concerned about the loss of privacy to our rear garden. The proposed first floor windows will directly overlook our private outdoor space.",
+      "sentiment": "negative",
+      "submissionDate": "2024-02-07T14:30:00Z",
+      "officerNotes": "Privacy screening condition may be required"
+    },
+    {
+      "id": "comment-018",
+      "neighborAddress": "29 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.4736,
+        "longitude": -2.2388
+      },
+      "content": "The proposal appears well-considered and should not significantly impact neighboring properties. The design respects the local character.",
+      "sentiment": "positive",
+      "submissionDate": "2024-02-08T11:45:00Z",
+      "officerNotes": ""
+    },
+    {
+      "id": "comment-019",
+      "neighborAddress": "20 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.4727,
+        "longitude": -2.2379
+      },
+      "content": "No objections to the principle of the extension, but request that construction hours are limited to prevent disruption to our young children.",
+      "sentiment": "neutral",
+      "submissionDate": "2024-02-09T16:20:00Z",
+      "officerNotes": "Standard construction hours condition applicable"
+    },
+    {
+      "id": "comment-020",
+      "neighborAddress": "8 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.4715,
+        "longitude": -2.2367
+      },
+      "content": "I am concerned about the impact on parking in the street. The extended property may encourage more vehicles and there is already limited parking.",
+      "sentiment": "negative",
+      "submissionDate": "2024-02-10T09:10:00Z",
+      "officerNotes": "Parking survey requested"
+    },
+    {
+      "id": "comment-021",
+      "neighborAddress": "31 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.4738,
+        "longitude": -2.239
+      },
+      "content": "Excellent proposal that will enhance the property whilst maintaining the Victorian character of our street. Fully support this application.",
+      "sentiment": "positive",
+      "submissionDate": "2024-02-11T13:25:00Z",
+      "officerNotes": ""
+    },
+    {
+      "id": "comment-022",
+      "neighborAddress": "22 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.4729,
+        "longitude": -2.2381
+      },
+      "content": "The extension is acceptable in size but I would like confirmation that roof water will be properly managed to prevent flooding of adjacent properties.",
+      "sentiment": "neutral",
+      "submissionDate": "2024-02-12T15:40:00Z",
+      "officerNotes": "Drainage details condition recommended"
+    },
+    {
+      "id": "comment-023",
+      "neighborAddress": "6 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.4713,
+        "longitude": -2.2365
+      },
+      "content": "This extension is far too large for the plot and will create a precedent for over-development in our area. The bulk and mass are excessive.",
+      "sentiment": "negative",
+      "submissionDate": "2024-02-13T12:55:00Z",
+      "officerNotes": "Bulk and massing assessment required"
+    },
+    {
+      "id": "comment-024",
+      "neighborAddress": "33 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.474,
+        "longitude": -2.2392
+      },
+      "content": "The proposed extension appears well-designed and proportionate. It should enhance the property without adversely affecting the neighborhood.",
+      "sentiment": "positive",
+      "submissionDate": "2024-02-14T08:15:00Z",
+      "officerNotes": ""
+    },
+    {
+      "id": "comment-025",
+      "neighborAddress": "24 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.4731,
+        "longitude": -2.2383
+      },
+      "content": "The application documentation seems thorough and the proposal is reasonable. I have no objections to this development.",
+      "sentiment": "neutral",
+      "submissionDate": "2024-02-15T14:05:00Z",
+      "officerNotes": ""
+    },
+    {
+      "id": "comment-026",
+      "neighborAddress": "4 Oxford Road, Manchester M1 5QA",
+      "coordinates": {
+        "latitude": 53.4711,
+        "longitude": -2.2363
+      },
+      "content": "I object due to the potential noise and disturbance during construction. My elderly mother lives with us and is sensitive to noise pollution.",
+      "sentiment": "negative",
+      "submissionDate": "2024-02-16T10:35:00Z",
+      "officerNotes": "Enhanced construction management plan required"
+    },
+    {
+      "id": "comment-027",
+      "neighborAddress": "2 Dale Street, Manchester M1 5QD",
+      "coordinates": {
+        "latitude": 53.4705,
+        "longitude": -2.2355
+      },
+      "content": "As a resident of the adjacent street, I support this thoughtful extension. The design maintains the character of the area while providing needed family space.",
+      "sentiment": "positive",
+      "submissionDate": "2024-02-17T16:50:00Z",
+      "officerNotes": ""
+    },
+    {
+      "id": "comment-028",
+      "neighborAddress": "45 Princess Street, Manchester M1 6DE",
+      "coordinates": {
+        "latitude": 53.4755,
+        "longitude": -2.234
+      },
+      "content": "The extension appears appropriate and should not significantly impact the wider neighborhood. The architectural style is compatible with local buildings.",
+      "sentiment": "neutral",
+      "submissionDate": "2024-02-18T11:20:00Z",
+      "officerNotes": ""
+    }
+  ]
+}
